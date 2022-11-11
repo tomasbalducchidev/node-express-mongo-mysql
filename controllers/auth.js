@@ -37,7 +37,7 @@ const registerCtrl = async (req, res) => {
 const loginCtrl = async (req, res) => {
     try {
         req = matchedData(req)
-        const user = await usersModel.findOne({email: req.email}).select('password name role email')
+        const user = await usersModel.findOne({email: req.email})
         if(!user) {
             handleHttpError(res, 'USER_NOT_FOUND', 404)
             return
